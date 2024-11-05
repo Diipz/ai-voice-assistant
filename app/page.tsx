@@ -62,7 +62,7 @@ export default function Home() {
   return (
     <main className="bg-black h-screen overflow-y-auto">
       {/* Header */}
-      <header className="flex justify-between fixed top-0 text-white w-full p-5">
+      <header className="flex justify-between items-center fixed top-0 text-white w-full p-5">
         <Image
           src={assistantLogo}
           alt="logo"
@@ -72,7 +72,7 @@ export default function Home() {
         />
         <SettingsIcon
           size={40}
-          className="p-2 m-2 rounded-full cursor-pointer bg-purple-600 text-black transition-all ease-in-out duration-150 hover:bg-purple-700 hover:text-white"
+          className="p-2 m-2 mb-4 rounded-full cursor-pointer bg-purple-600 text-black transition-all ease-in-out duration-150 hover:bg-purple-700 hover:text-white"
           onClick={() => setDisplaySettings(!displaySettings)}
 
         />
