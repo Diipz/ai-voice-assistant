@@ -7,7 +7,7 @@ import Recorder, { mimeType } from "./components/Recorder";
 import { useActionState, useEffect, useRef, useState } from "react";
 import transcript from "@/actions/transcript";
 import VoiceSynthesizer from "./components/VoiceSynthesizer";
-import assistantLogo from "./img/assistant_logo.jpg";
+import assistantLogo from "./img/assistant-logo.webp";
 
 const initialState = {
   sender: "",
@@ -66,8 +66,8 @@ export default function Home() {
         <Image
           src={assistantLogo}
           alt="logo"
-          height={50}
-          width={50}
+          height={90}
+          width={90}
           className="p-1 rounded-full"
         />
         <SettingsIcon

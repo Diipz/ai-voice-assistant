@@ -1,9 +1,8 @@
 "use server"
 
-
-import { DefaultAzureCredential, getBearerTokenProvider } from "@azure/identity";
-import { AzureOpenAI } from "openai";
+import { AzureOpenAI} from "openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
+import { AzureKeyCredential  } from "@azure/core-auth";
 
 
 export default async function transcription(prevState: object, formData: FormData) {
@@ -35,26 +34,25 @@ export default async function transcription(prevState: object, formData: FormDat
 
     // console.log(">>", file);
 
-     // Authenticate using Microsoft Entra ID tokens
-     const credential = new DefaultAzureCredential({});
-     const scope = "https://cognitiveservices.azure.com/.default";
-     const azureADTokenProvider = getBearerTokenProvider(credential, scope);
+
+    const apiKey = new AzureKeyCredential(process.env.AZURE_API_KEY);
  
      // Construct the Azure Whisper client
      const client = new AzureOpenAI({
          endpoint: process.env.AZURE_OPENAI_ENDPOINT,
-         azureADTokenProvider,
+         apiKey: apiKey.key,
          apiVersion: "2024-08-01-preview",
          deployment: process.env.AZURE_DEPLOYMENT_NAME,
      });
 
-     // Construct the Azure OpenAI client
+    //  // Construct the Azure OpenAI client
     const client2 = new AzureOpenAI({
         endpoint: process.env.AZURE_OPENAI_ENDPOINT,
-        azureADTokenProvider,
+        apiKey: apiKey.key,
         apiVersion: "2024-08-01-preview",
         deployment: process.env.AZURE_DEPLOYMENT_COMPLETIONS_NAME,
     });
+
 
     // Convert audio file into data that can be sent to Azure
     const arrayBuffer = await file.arrayBuffer();

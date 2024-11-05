@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@azure/core-auth": "^1.9.0",
-    "@azure/identity": "^4.5.0",
     "@azure/openai": "^2.0.0-beta.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
