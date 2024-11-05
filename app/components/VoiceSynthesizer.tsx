@@ -62,7 +62,7 @@ export default function VoiceSynthesizer({
     }
 
     return (
-        <div className='flex flex-col items-center justify-centertext-white'>
+        <div className='flex flex-col items-center justify-center text-white'>
             {displaySettings && (
                 <>
                     <div className='w-fit'>
@@ -90,7 +90,7 @@ export default function VoiceSynthesizer({
                                 step="0.1"
                                 value={pitch}
                                 onChange={handlePitchChange}
-                                className='accent-purple-500'
+                                className='accent-purple-500 w-full'
                             />
                         </div>
                         <div className="p-2">
@@ -102,7 +102,7 @@ export default function VoiceSynthesizer({
                                 step="0.1"
                                 value={rate}
                                 onChange={handleRateChange}
-                                className='accent-purple-500'
+                                className='accent-purple-500 w-full'
                             />
                         </div>
                         <div className="p-2">
@@ -114,7 +114,7 @@ export default function VoiceSynthesizer({
                                 step="0.1"
                                 value={volume}
                                 onChange={handleVolumeChange}
-                                className='accent-purple-500'
+                                className='accent-purple-500 w-full'
                             />
                         </div>
                     </div>
